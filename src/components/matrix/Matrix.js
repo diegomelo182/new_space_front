@@ -5,10 +5,15 @@ import {
 
 import './Matrix.css';
 
-const Matrix = ({ airportsPosition = [], cloudPosition = [], dayNumber = 1 }) => {
-  const [rowNumber, colNumber] = [10, 10];
-  const rows = Array.from(Array(rowNumber));
-  const cols = Array.from(Array(colNumber));
+const Matrix = ({
+  airportsPosition = [],
+  cloudPosition = [],
+  dayNumber = 1,
+  rowNumber = 10,
+  colNumber = 10
+}) => {
+  const rows = Array.from(Array(+rowNumber));
+  const cols = Array.from(Array(+colNumber));
 
   return(
     <Card>
@@ -16,9 +21,9 @@ const Matrix = ({ airportsPosition = [], cloudPosition = [], dayNumber = 1 }) =>
       <CardBody>
         <div className="matrix">
           { rows.map((rowValue, rowIndex) =>
-            <div className="matrix-row">
+            <div className="matrix-row" key={ `r-${rowIndex}` }>
               { cols.map((colValue, colIndex) =>
-                <div className="matrix-col">
+                <div className="matrix-col" key={ `c-${rowIndex}-${colIndex}` }>
                   *
                 </div>
               ) }
