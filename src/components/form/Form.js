@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import {
   Form as BTForm, FormGroup, Label, Input, Button,
   Card, CardHeader, CardBody, Spinner, FormFeedback
- } from 'reactstrap';
- import { isEmpty } from 'lodash';
+} from 'reactstrap';
+import { isEmpty } from 'lodash';
+import MatrixService from '../../services/matrix';
 
 import './Form.css';
 
@@ -23,13 +24,27 @@ const Form = () => {
   const sendRequest = (data) => {
     setLoading(true);
 
-    setTimeout(() => setLoading(false), 4000);
+    const params = {
+      airports: data.get('airports'),
+      clouds: data.get('clouds'),
+      lines: data.get('lines'),
+      columns: data.get('columns')
+    }
+    const matrixService = new MatrixService();
+    matrixService.create(params)
+      .then((response) => {
+        console.log('data', response.data);
+
+        setLoading(false);
+      })
+      .catch(() => {
+        setLoading(false);
+      })
   }
 
   const validate = (data) => {
     const [airports, clouds, lines, columns] = [data.get('airports'), data.get('clouds'), data.get('lines'), data.get('columns')];
     let formErrors = {};
-    console.log('airports', airports)
 
     if (isEmpty(airports) || +airports < 3) { formErrors = { ...formErrors, airports: 'Valor mínimo precisa ser maior ou igual a 3' }; }
     if (isEmpty(clouds) || +clouds < 4) { formErrors = { ...formErrors, clouds: 'Valor mínimo precisa ser maior ou igual a 4' }; }
