@@ -1,18 +1,17 @@
 .matrix {
   display: flex;
   flex-direction: column;
-  background: url(../../assets/imgs/ground.jpg);
   max-width: 330px;
   border-radius: 5px;
-  color: #fff;
 }
 
-.matrix > .row {
+.matrix > .matrix-row {
   display: flex;
   justify-content: space-between;
 }
 
-.matrix > .row > .col {
+.matrix > .matrix-row > .matrix-col {
   display: flex;
   padding: 5px;
+  border: 1px solid #817c7c;
 }
