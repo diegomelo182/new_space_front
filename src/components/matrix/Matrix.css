@@ -1,0 +1,18 @@
+.matrix {
+  display: flex;
+  flex-direction: column;
+  background: url(../../assets/imgs/ground.jpg);
+  max-width: 330px;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.matrix > .row {
+  display: flex;
+  justify-content: space-between;
+}
+
+.matrix > .row > .col {
+  display: flex;
+  padding: 5px;
+}
