@@ -8,7 +8,7 @@ import MatrixService from '../../services/matrix';
 
 import './Form.css';
 
-const Form = () => {
+const Form = ({ onChange = ()=>{} }) => {
   const [loading, setLoading] = useState(false);
   const [formErrors, setformErrors] = useState({});
 
@@ -33,7 +33,7 @@ const Form = () => {
     const matrixService = new MatrixService();
     matrixService.create(params)
       .then((response) => {
-        console.log('data', response.data);
+        onChange(response.data);
 
         setLoading(false);
       })

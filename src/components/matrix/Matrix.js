@@ -6,8 +6,7 @@ import {
 import './Matrix.css';
 
 const Matrix = ({
-  airportsPosition = [],
-  cloudPosition = [],
+  matrix = [],
   dayNumber = 1,
   rowNumber = 10,
   colNumber = 10
@@ -24,7 +23,9 @@ const Matrix = ({
             <div className="matrix-row" key={ `r-${rowIndex}` }>
               { cols.map((colValue, colIndex) =>
                 <div className="matrix-col" key={ `c-${rowIndex}-${colIndex}` }>
-                  *
+                  { matrix[rowIndex][colIndex] === null && <span>*</span> }
+                  { matrix[rowIndex][colIndex] === 'A' && <span>A</span> }
+                  { matrix[rowIndex][colIndex] === 'C' && <span>C</span> }
                 </div>
               ) }
             </div>
