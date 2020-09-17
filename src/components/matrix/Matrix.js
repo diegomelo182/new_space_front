@@ -23,9 +23,9 @@ const Matrix = ({
             <div className="matrix-row" key={ `r-${rowIndex}` }>
               { cols.map((colValue, colIndex) =>
                 <div className="matrix-col" key={ `c-${rowIndex}-${colIndex}` }>
-                  { matrix[rowIndex][colIndex] === null && <span>*</span> }
+                  { matrix[rowIndex][colIndex] === null && <span></span> }
                   { matrix[rowIndex][colIndex] === 'A' && <span>A</span> }
-                  { matrix[rowIndex][colIndex] === 'C' && <span>C</span> }
+                  { matrix[rowIndex][colIndex] === 'C' && <span>*</span> }
                 </div>
               ) }
             </div>

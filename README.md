@@ -1,68 +1,45 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+New Space Frontend
+===========
 
-## Available Scripts
+Para inicializar a aplicação basta executar o comando abaixo:
 
-In the project directory, you can run:
+```
+$ npm start
+```
 
-### `yarn start`
+Para ver a real funcionalidade dessa API basta clonar o repositório abaixo:
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+https://github.com/diegomelo182/new_space_back
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+O Teste
+===========
 
-### `yarn test`
+O frontend deve enviar para a api os dados iniciais, sendo quantidade mínima de aeroportos: 3, quantidade mínima de nuvens mínimo: 4 nuvens, tamanho do terreno tendo no mínimo uma área de 10 x 10 linhas.
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Como resultado ele deve receber os dados para plotagem de um gráfico ou grid com o resultado do cálculo.
+O resultado deve sempre iniciar com o número de nuvens e aeroportos em posições aleatórias, lembrando que um aeroporto não pode iniciar com uma nuvem sobre ele.
 
-### `yarn build`
+## O Desafio:
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Um vulcão acaba de entrar em erupção, provocando uma nuvem de cinzas que se alastra impedindo a circulação aérea. O governo está muito preocupado e deseja saber quando uma nuvem de cinzas irá atingir todos os aeroportos do país.
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+Está disponível um mapa detalhando a situação atual. O mapa é retangular, dividido em pequenos quadrados. Neste mapa existem três tipos de quadrados: nuvem (indicando que esta região do mapa já está coberto por nuvens), aeroportos (indicando a localização de um aeroporto) e todas as outras (indicando locais onde a nuvem ainda não chegou).
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+A cada dia, a nuvem expande-se um quadrado na horizontal e um quadrado na vertical. Ou seja, ao fim de cada dia, todos os quadrados adjacentes (vertical ou horizontalmente) a uma nuvem, também passam a conter nuvens.
 
-### `yarn eject`
+Por exemplo:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+. . * . . . * *      . * * * . * * *     * * * * * * * *
+. * * . . . . .      * * * * . . * *     * * * * * * * *
+* * * . A . . A      * * * * A . . A     * * * * * . * *
+. * . . . . . .  ->  * * * . . . . .  -> * * * * . . . .
+. * . . . . A .      * * * . . . A .     * * * * . . A .
+. . . A . . . .      . * . A . . . .     * * * A . . . .
+. . . . . . . .      . . . . . . . .     . * . . . . . .
+     Dia 1                Dia 2               Dia 3
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Para preparar os planos de contingência, o governo necessita saber:
+    > Quantos dias demorará para ao menos um aeroporto ficar coberto pelas nuvens
+    > Daqui quantos dias todos os aeroportos estarão cobertos pelas nuvens.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+Dado um quadriculado mínimo de 10 linhas e 10 colunas, além da indicação inicial das nuvens e dos aeroportos, desenvolva uma programa que informe o número de dias até um primeiro aeroporto ficar debaixo da nuvem de cinzas e o número de dias até que todos os aeroportos ficarem cobertos pelas cinzas.

@@ -1,8 +1,6 @@
 .matrix {
   display: flex;
   flex-direction: column;
-  max-width: 330px;
-  border-radius: 5px;
 }
 
 .matrix > .matrix-row {
@@ -13,5 +11,8 @@
 .matrix > .matrix-row > .matrix-col {
   display: flex;
   padding: 5px;
-  border: 1px solid #817c7c;
+  border: 1px solid rgba(0,0,0,.125);
+  min-width: 20px;
+  min-height: 27px;
+  font-size: 10px;
 }

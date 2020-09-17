@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './App.css';
-import { Container, Row } from 'reactstrap';
+import { Container, Row, Col } from 'reactstrap';
 import Matrix from './components/matrix';
 import Form from './components/form';
 
@@ -26,17 +26,20 @@ function App() {
 
         { matixes.length > 0 &&
           <Row>
-            <h3>Resultado</h3>
+            <Col md="12">
+              <h3>Resultado</h3>
+            </Col>
           </Row> }
         <Row>
           { matixes.map((m, i) =>
-            <Matrix
-              key={ `m-${i}`}
-              matrix={ m.matrix }
-              dayNumber={ m.day }
-              rowNumber={ m.rows }
-              colNumber={ m.columns }
-            />) }
+            <Col md="3" key={ `m-${i}`}>
+              <Matrix
+                matrix={ m.matrix }
+                dayNumber={ i + 1 }
+                rowNumber={ m.rows }
+                colNumber={ m.columns }
+              />
+            </Col>) }
         </Row>
       </Container>
     </>
